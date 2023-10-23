@@ -21,7 +21,8 @@ namespace TEST
                 });
 
             builder.Services.AddSingleton<IHashingService, SHA256Service>();
-            builder.Services.AddTestDbContext(builder.Configuration);
+
+            //builder.Services.AddTestDbContext(builder.Configuration);
 
             
 
@@ -30,10 +31,11 @@ namespace TEST
 
             var app = builder.Build();
 
-            using (var scope = app.Services.CreateScope())
+            /*using (var scope = app.Services.CreateScope())
             {
                 DBInitializer.Initializer(scope.ServiceProvider.GetService<TestDbContext>());
-            }
+            }*/
+
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
