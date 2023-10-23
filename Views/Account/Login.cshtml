@@ -1,0 +1,29 @@
+﻿@model LoginViewModel;
+
+<div class="row">
+    <div class="col-4 col-sm-12 col-md-4 col-lg-3 col-xl-2 col-xxl-2"></div>
+    <div class="col-4 col-sm-12 col-md-4 col-lg-6 col-xl-8">
+        <h3>Вход</h3>
+        <form asp-controller="Account" asp-action="Login" method="post">
+            <input type="hidden" asp-for="ReturnUrl" />
+            <div class="mb-3">
+                <label class="form-label">Имя пользователя</label>
+                <input asp-for="Username" class="form-control" type="text">
+                <span asp-validation-for="Username" class="form-text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Пароль</label>
+                <input asp-for="Password" class="form-control" type="password">
+                <span asp-validation-for="Password" class="form-text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit">
+                <span class="my-3">@ViewData["Error"]</span>
+            </div>
+            <a asp-controller="Account" asp-action="SignUp"
+               asp-route-returnUrl="@Model.ReturnUrl">Создать аккаунт</a>
+        </form>
+    </div>
+    <div class="col-4 col-sm-12 col-md-4 col-lg-3 col-xl-2 col-xxl-2"></div>
+</div>
+
